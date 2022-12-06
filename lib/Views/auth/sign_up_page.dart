@@ -278,11 +278,11 @@ class _SignUpPageState extends State<SignUpPage> {
                 text: "Register",
                 onpressed: () {
                   navPushTransition(context, NavBar());
-                  // Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //       builder: (context) => NavBar(),
-                  //     ));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => NavBar(),
+                      ));
                 }),
             const SizedBox(
               height: 17.0,

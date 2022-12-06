@@ -34,7 +34,7 @@ class ForgotPassword3 extends StatelessWidget {
             Container(
               child: Image(
                 image: const AssetImage(
-                  "assets/Mobile login-pana 2.png",
+                  "assets/Mobilelogin-pana2.png",
                 ),
                 fit: BoxFit.contain,
                 width: MediaQuery.of(context).size.width,
@@ -49,8 +49,8 @@ class ForgotPassword3 extends StatelessWidget {
                 "Create your new password",
                 style: textStyle.copyWith(
                     color: cBlackBase,
-                    fontSize: 13,
-                    fontWeight: FontWeight.w500),
+                    fontSize: 14,
+                    fontWeight: FontWeight.w600),
               ),
             ),
             const SizedBox(
@@ -90,9 +90,11 @@ class ForgotPassword3 extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10),
                   ),
                   prefixIcon: const Icon(
-                    Icons.email_outlined,
+                    Icons.lock,
                     color: Colors.black,
                   ),
+                  suffixIcon: IconButton(
+                      onPressed: () {}, icon: const Icon(Icons.visibility)),
                   hintText: "Create Password",
                   floatingLabelBehavior: FloatingLabelBehavior.auto),
             ),
@@ -133,9 +135,11 @@ class ForgotPassword3 extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10),
                   ),
                   prefixIcon: const Icon(
-                    Icons.email_outlined,
+                    Icons.lock,
                     color: Colors.black,
                   ),
+                  suffixIcon: IconButton(
+                      onPressed: () {}, icon: const Icon(Icons.visibility)),
                   hintText: "Confirm New Password",
                   floatingLabelBehavior: FloatingLabelBehavior.auto),
             ),

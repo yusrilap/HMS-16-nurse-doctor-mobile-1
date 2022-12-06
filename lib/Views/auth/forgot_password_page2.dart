@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:hms_16/Views/auth/forgot_password_page1.dart';
+import 'package:hms_16/Views/auth/login_page.dart';
 import 'package:hms_16/style/theme.dart';
 import 'package:hms_16/views/auth/forgot_password_page3.dart';
 import 'package:hms_16/widget/button.dart';
 import 'package:hms_16/widget/navpush_transition.dart';
+import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 
 class ForgotPassword2 extends StatelessWidget {
   const ForgotPassword2({super.key});
@@ -28,7 +31,7 @@ class ForgotPassword2 extends StatelessWidget {
             Container(
               child: Image(
                 image: const AssetImage(
-                  "assets/assets/Email-campaign-pana1.png",
+                  "assets/Security-pana.png",
                 ),
                 fit: BoxFit.contain,
                 width: MediaQuery.of(context).size.width,
@@ -41,44 +44,67 @@ class ForgotPassword2 extends StatelessWidget {
               child: Text(
                 "Enter the verification code we just sent you on your email addrress",
                 textAlign: TextAlign.center,
-                style: textStyle.copyWith(fontSize: 15),
+                style: textStyle.copyWith(
+                  fontSize: 15,
+                ),
               ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 5),
-                  height: 50,
-                  width: 50,
-                  color: Colors.grey.shade400,
+                OtpTextField(
+                  numberOfFields: 4,
+                  borderColor: cPrimaryBase,
+                  //set to true to show as box or false to show as dash
+                  showFieldAsBox: true,
+                  //runs when a code is typed in
+                  onCodeChanged: (String code) {
+                    //handle validation or checks here
+                  },
+                  //runs when every textfield is filled
+                  onSubmit: (String verificationCode) {
+                    showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            title: Text("Verification Code"),
+                            content: Text('Code entered is $verificationCode'),
+                          );
+                        });
+                  }, // end onSubmit
                 ),
-                Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 5),
-                  height: 50,
-                  width: 50,
-                  color: Colors.grey.shade400,
-                ),
-                Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 5),
-                  height: 50,
-                  width: 50,
-                  color: Colors.grey.shade400,
-                ),
-                Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 5),
-                  height: 50,
-                  width: 50,
-                  color: Colors.grey.shade400,
-                )
               ],
             ),
             const SizedBox(
               height: 30,
             ),
-            Text(
-              "If you don't receive a code! Resend code",
-              style: textStyle,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "If you didn't receive a code! ",
+                  style: TextStyle(
+                    color: cBlackLightest,
+                    fontSize: 12,
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    // Navigator.pushAndRemoveUntil(
+                    //     context,
+                    //     MaterialPageRoute(builder: (builder) => SignUpPage()),
+                    //     (route) => false);
+                  },
+                  child: Text(
+                    "Resend Code",
+                    style: TextStyle(
+                      color: cPrimaryBase,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+              ],
             ),
             Button(
                 text: "VERIFY",

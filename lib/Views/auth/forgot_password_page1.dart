@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hms_16/Views/auth/forgot_password_page2.dart';
+// import 'package:hms_16/Views/auth/forgot_password_page3.dart';
 import 'package:hms_16/style/theme.dart';
-import 'package:hms_16/views/auth/forgot_password_page2.dart';
 import 'package:hms_16/widget/button.dart';
 import 'package:hms_16/widget/navpush_transition.dart';
 
@@ -86,8 +87,8 @@ class ForgotPassword1 extends StatelessWidget {
               decoration: InputDecoration(
                   errorStyle: textStyle.copyWith(color: Colors.red),
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: BorderSide(color: cSuccessBase, width: 5.0)),
                   prefixIcon: const Icon(
                     Icons.email_outlined,
                     color: Colors.black,
